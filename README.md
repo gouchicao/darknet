@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://pjreddie.com/static/img/darknet.png" width="240px">
+  <img src="http://pjreddie.com/media/files/darknet-black-small.png">
 </div>
 
 -----------------
