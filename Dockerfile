@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 LABEL maintainer="wang-junjian@qq.com"
 
 RUN apt-get update && apt-get install -y \
@@ -9,5 +9,5 @@ RUN apt-get update && apt-get install -y \
 ADD ./darknet/ /darknet/
 
 WORKDIR /darknet
-RUN make && rm -rf obj
+RUN make GPU=1 CUDNN=1 && rm -rf obj
 
