@@ -11,3 +11,4 @@ ADD ./darknet/ /darknet/
 WORKDIR /darknet
 RUN make GPU=1 CUDNN=1 && rm -rf obj
 
+WORKDIR /darknet/project
