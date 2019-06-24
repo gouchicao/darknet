@@ -4,7 +4,15 @@
 
 -----------------
 
-## 构建darknet镜像（GPU）
+## 获得darknet镜像（GPU）
+> 有两种方式：拉取hub.docker上的镜像和自己在本地生成镜像。
+
+### 1. 拉取darknet镜像
+```bash
+$ sudo docker pull gouchicao/darknet:latest-gpu
+```
+
+### 2. 构建darknet镜像
 * 下载Darknet的源代码和基于Imagenet的预训练模型darknet53
 ```bash
 $ ./get_darknet.sh
