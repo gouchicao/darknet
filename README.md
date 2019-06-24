@@ -7,24 +7,24 @@
 ## 构建darknet镜像（GPU）
 * 下载Darknet的源代码和基于Imagenet的预训练模型darknet53
 ```bash
-./get_darknet.sh
+$ ./get_darknet.sh
 ```
 
 * 构建镜像
 ```bash
-sudo docker build -t darknet:latest-gpu .
+$ sudo docker build -t darknet:latest-gpu .
 ```
 
 * 测试
 ```bash
-sudo docker run --runtime=nvidia --rm darknet:latest-gpu ../darknet
+$ sudo docker run --runtime=nvidia --rm darknet:latest-gpu ../darknet
 usage: ../darknet <function>
 ```
 
 ## 运行darknet容器（GPU）
 * 使用你的工程绝对路径替换$project_dir
 ```bash
-sudo docker run --runtime=nvidia -it --name=darknet \
+$ sudo docker run --runtime=nvidia -it --name=darknet \
     --volume=$project_dir:/darknet/project \
     darknet:latest-gpu
 ```
@@ -61,7 +61,7 @@ sudo docker run --runtime=nvidia -it --name=darknet \
 1. 准备样本集
     > 使用YOLO格式标注样本集
     ```bash
-    python3 labelImg.py [图像目录] [标注名字文件] [标注目录]
+    $ python3 labelImg.py [图像目录] [标注名字文件] [标注目录]
     ```
 
     > 元数据信息配置：cfg/voc.data
@@ -107,20 +107,20 @@ sudo docker run --runtime=nvidia -it --name=darknet \
 
 4. 运行darknet容器
     ```bash
-    sudo docker run --runtime=nvidia -it --name=darknet \
+    $ sudo docker run --runtime=nvidia -it --name=darknet \
         --volume=$project_dir:/darknet/project \
         darknet:latest-gpu
     ```
 
 5. 训练模型
     ```bash
-    ../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
+    $ ../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
     ```
 
 6. 测试模型
     ```bash
-    mkdir /darknet/project/data
-    ln -s /darknet/data/labels /darknet/project/data/labels
+    $ mkdir /darknet/project/data
+    $ ln -s /darknet/data/labels /darknet/project/data/labels
 
-    ../darknet detector test cfg/voc.data cfg/yolov3.cfg backup/yolov3_final.weights test.jpg
+    $ ../darknet detector test cfg/voc.data cfg/yolov3.cfg backup/yolov3_final.weights test.jpg
     ```
