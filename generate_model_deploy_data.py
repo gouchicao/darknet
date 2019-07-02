@@ -38,7 +38,7 @@ def generate_model_deploy_data(project_dir):
     model_deploy_config_file = os.path.join(model_deploy_data_dir, os.path.basename(model_config_file))
     with open(model_deploy_config_file, 'w+') as f:
         f.write('classes = {}\n'.format(class_num))
-        f.write('names = {}/{}\n'.format(MODEL_DEPLOY_DATA_DIR, os.path.basename(MODEL_CLASS_NAME_FILE)))
+        f.write('names = /{}/{}\n'.format(MODEL_DEPLOY_DATA_DIR, os.path.basename(MODEL_CLASS_NAME_FILE)))
     
 
 def copyfile(src_file, dst_dir):
