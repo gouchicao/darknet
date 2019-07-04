@@ -1,6 +1,8 @@
 darknet/
-backup/
-examples/*/model/
+model-zoo/*/backup/
+model-zoo/*/model/
+.DS_Store
+._.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
