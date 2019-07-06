@@ -67,5 +67,5 @@ $ cd $project_dir
 $ sudo docker cp model/ $darknet_model_name:/
 $ sudo docker commit -a 'wang-junjian@qq.com' -m 'darknet model [platen-switch recognition]' \
     $darknet_model_name gouchicao/$darknet_model_name:latest
-$ sudo docker rmi darknet-model-platen-switch
+$ sudo docker rm -v $darknet_model_name
 ```
