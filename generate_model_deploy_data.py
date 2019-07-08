@@ -7,15 +7,14 @@ import xml.etree.ElementTree as ET
 
 from os import listdir, getcwd
 from os.path import join
-from tqdm import tqdm
 
+
+MODEL_DEPLOY_DATA_DIR = 'model'
 
 MODEL_CONFIG_FILE = 'cfg/voc.data'
 MODEL_CLASS_NAME_FILE = 'cfg/voc.names'
 MODEL_NETWORK_FILE = 'cfg/yolov3.cfg'
 MODEL_WEIGHT_FILE = 'backup/yolov3_final.weights'
-
-MODEL_DEPLOY_DATA_DIR = 'model'
 
 
 def generate_model_deploy_data(project_dir):
@@ -64,8 +63,8 @@ def get_class_num(model_config_file):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('-d', '--project_dir', type=str, help='project directory.')
-    
+    parser.add_argument('-d', '--project_dir', type=str, help='project directory.', default='project')
+
     args = parser.parse_args()
 
     project_dir = args.project_dir
