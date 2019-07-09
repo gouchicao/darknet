@@ -51,12 +51,14 @@ $ sudo docker run --runtime=nvidia -it --rm --name=darknet \
 2. 训练模型
 ```bash
 在容器内运行
-$ mkdir backup
+$ python3 create_project.py
+$ cd /darknet/project/
 $ ../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
 ```
 
 3. 生成模型部署数据
 ```bash
+$ cd /darknet/
 $ python3 generate_model_deploy_data.py -d $project_dir
 ```
 
