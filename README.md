@@ -144,6 +144,8 @@ usage: ./darknet <function>
     ```
 
 ## 生成部署模型的数据
+> 模型部署详见[darknet-serving](https://github.com/gouchicao/darknet-serving)
+
 * 运行命令generate_model_deploy_data.py
 ```bash
 $ cd /darknet/

@@ -33,6 +33,8 @@ $ sudo docker run --runtime=nvidia -it --name=darknet-serving-platen-switch -p 7
 ```
 
 ## 创建自己的模型
+> 模型训练的工作流程详见[darknet](https://github.com/gouchicao/darknet)
+
 1. 设置变量
 ```bash
 # 使用您本机的绝对路径设置project_dir
