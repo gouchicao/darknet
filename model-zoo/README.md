@@ -33,6 +33,7 @@ $ sudo docker run --runtime=nvidia -it --name=darknet-serving-platen-switch -p 7
 ```
 
 ## 创建自己的模型
+1. 设置变量
 ```bash
 使用您本机的绝对路径设置project_dir
 $ project_dir=/home/wjunjian/github/gouchicao/darknet/model-zoo/platen-switch
@@ -41,33 +42,38 @@ $ project_dir=/home/wjunjian/github/gouchicao/darknet/model-zoo/platen-switch
 $ darknet_model_name=darknet-model-platen-switch
 ```
 
-1. 运行darknet容器（GPU）
+2. 运行darknet容器（GPU）
 ```bash
 $ sudo docker run --runtime=nvidia -it --rm --name=darknet \
     --volume=$project_dir:/darknet/project \
     gouchicao/darknet:latest-gpu
 ```
 
-2. 训练模型
+3. 训练模型
 ```bash
-在容器内运行
+# 在容器内运行
 $ python3 create_project.py
+
 $ cd /darknet/project/
 $ ../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
 ```
 
-3. 生成模型部署数据
+4. 生成模型部署数据
 ```bash
+# 在容器内运行
 $ cd /darknet/
-$ python3 generate_model_deploy_data.py -d $project_dir
+$ python3 generate_model_deploy_data.py
 ```
 
-4. 把生成的模型部署数据打包成数据卷镜像
+5. 把生成的模型部署数据打包成数据卷镜像
 ```bash
 $ sudo docker run -d --name $darknet_model_name alpine
+
 $ cd $project_dir
 $ sudo docker cp model/ $darknet_model_name:/
+
 $ sudo docker commit -a 'wang-junjian@qq.com' -m 'darknet model [platen-switch recognition]' \
     $darknet_model_name gouchicao/$darknet_model_name:latest
+    
 $ sudo docker rm -v $darknet_model_name
 ```
