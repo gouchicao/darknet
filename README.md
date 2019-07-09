@@ -73,7 +73,7 @@ usage: ./darknet <function>
     * 将工程目录作为挂载点绑定到容器
     ```bash
     # 使用您的工程绝对路径设置变量 project_dir
-    $ export project_dir='/home/wjunjian/github/gouchicao/darknet/model-zoo/platen-switch'
+    $ project_dir='/home/wjunjian/github/gouchicao/darknet/model-zoo/platen-switch'
     $ sudo docker run --runtime=nvidia -it --name=darknet \
         --volume=$project_dir:/darknet/project \
         gouchicao/darknet:latest-gpu

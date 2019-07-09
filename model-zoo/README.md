@@ -35,10 +35,10 @@ $ sudo docker run --runtime=nvidia -it --name=darknet-serving-platen-switch -p 7
 ## 创建自己的模型
 1. 设置变量
 ```bash
-使用您本机的绝对路径设置project_dir
+# 使用您本机的绝对路径设置project_dir
 $ project_dir=/home/wjunjian/github/gouchicao/darknet/model-zoo/platen-switch
 
-设置您的模型名
+# 设置您的模型名
 $ darknet_model_name=darknet-model-platen-switch
 ```
 
@@ -74,6 +74,6 @@ $ sudo docker cp model/ $darknet_model_name:/
 
 $ sudo docker commit -a 'wang-junjian@qq.com' -m 'darknet model [platen-switch recognition]' \
     $darknet_model_name gouchicao/$darknet_model_name:latest
-    
+
 $ sudo docker rm -v $darknet_model_name
 ```
