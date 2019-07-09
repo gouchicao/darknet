@@ -22,13 +22,13 @@ $ ./get_darknet.sh
 
 * 构建镜像
 ```bash
-$ sudo docker build -t darknet:latest-gpu .
+$ sudo docker build -t gouchicao/darknet:latest-gpu .
 ```
 
 * 测试
 ```bash
-$ sudo docker run --runtime=nvidia --rm darknet:latest-gpu ../darknet
-usage: ../darknet <function>
+$ sudo docker run --runtime=nvidia --rm gouchicao/darknet:latest-gpu ./darknet
+usage: ./darknet <function>
 ```
 
 ## 运行darknet容器（GPU）
