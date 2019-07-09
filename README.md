@@ -133,6 +133,9 @@ usage: ./darknet <function>
     ```bash
     $ cd /darknet/project/
     $ ../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74
+
+    # 使用多GPU训练
+    $ ../darknet detector train cfg/voc.data cfg/yolov3.cfg ../darknet53.conv.74 -gpus 0,1,2,3
     ```
 
 6. 测试模型
