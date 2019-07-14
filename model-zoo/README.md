@@ -6,6 +6,8 @@
     > 检测压板开关的状态
 * [安全帽：helmet](helmet/)
     > 检测戴着的安全帽
+* [鸟窝：bird-nest](bird-nest/)
+    > 检测戴着的安全帽
 
 ## 部署模型
 1. 下载模型
@@ -17,6 +19,7 @@ sudo docker pull gouchicao/darknet-model-<name>:latest
 例如：
 $ sudo docker pull gouchicao/darknet-model-platen-switch:latest
 $ sudo docker pull gouchicao/darknet-model-helmet:latest
+$ sudo docker pull gouchicao/darknet-model-bird-nest:latest
 ```
 
 2. 创建存储卷
