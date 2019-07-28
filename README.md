@@ -9,12 +9,13 @@
 ## 获得darknet镜像（GPU）
 > 有两种方式：拉取hub.docker上的镜像和自己在本地生成镜像。
 
-### 1. 拉取darknet镜像
+### GPU
+#### 1. 拉取darknet镜像
 ```bash
 $ sudo docker pull gouchicao/darknet:latest-gpu
 ```
 
-### 2. 构建darknet镜像
+#### 2. 构建darknet镜像
 * 下载Darknet的源代码和基于Imagenet的预训练模型darknet53
 ```bash
 $ ./get_darknet.sh
@@ -22,12 +23,35 @@ $ ./get_darknet.sh
 
 * 构建镜像
 ```bash
-$ sudo docker build -t gouchicao/darknet:latest-gpu .
+$ sudo docker build -f Dockerfile.gpu -t gouchicao/darknet:latest-gpu .
 ```
 
 * 测试
 ```bash
 $ sudo docker run --runtime=nvidia --rm gouchicao/darknet:latest-gpu ./darknet
+usage: ./darknet <function>
+```
+
+### CPU
+#### 1. 拉取darknet镜像
+```bash
+$ sudo docker pull gouchicao/darknet:latest
+```
+
+#### 2. 构建darknet镜像
+* 下载Darknet的源代码和基于Imagenet的预训练模型darknet53
+```bash
+$ ./get_darknet.sh
+```
+
+* 构建镜像
+```bash
+$ sudo docker build -f Dockerfile.cpu -t gouchicao/darknet:latest .
+```
+
+* 测试
+```bash
+$ sudo docker run --rm gouchicao/darknet:latest ./darknet
 usage: ./darknet <function>
 ```
 
@@ -70,6 +94,9 @@ usage: ./darknet <function>
     ```
 
 2. 运行darknet容器
+
+    **运行CPU版本不需要加 `--runtime=nvidia`**，镜像使用 `gouchicao/darknet:latest`
+
     * 将工程目录作为挂载点绑定到容器
     ```bash
     # 使用您的工程绝对路径设置变量 project_dir
