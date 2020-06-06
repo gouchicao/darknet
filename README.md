@@ -188,3 +188,6 @@ platen-switch/
     ├── yolov3.cfg
     └── yolov3_final.weights
 ```
+
+## 参考资料
+* [How to train (to detect your custom objects)](https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)
