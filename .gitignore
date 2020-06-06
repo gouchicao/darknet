@@ -1,8 +1,15 @@
 darknet/
 model-zoo/*/backup/
 model-zoo/*/model/
+model-zoo/bird-nest/
+model-zoo/helmet/
+model-zoo/platen-switch/
+model-zoo/metal-corrosion/
+model-zoo/mountain-fire/
+model-zoo/test/
 .DS_Store
 ._.DS_Store
+tmp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

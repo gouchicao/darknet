@@ -1,0 +1,28 @@
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+LABEL maintainer="wang-junjian@qq.com"
+
+# auto install tzdata(opencv depend)
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    git wget nano \
+    libopencv-dev python3-opencv \
+    && rm -rf /var/lib/apt/lists/*
+
+# set your localtime
+RUN ln -fs /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+WORKDIR /
+RUN git clone https://github.com/AlexeyAB/darknet.git
+
+WORKDIR /darknet
+
+# pre-trained weights-file for training
+RUN wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.conv.137
+
+# build darknet for GPU
+RUN make GPU=1 CUDNN=1 CUDNN_HALF=1 OPENCV=1 LIBSO=1 && rm -rf obj
+
+EXPOSE 8090
+
+ENTRYPOINT ["bash"]
