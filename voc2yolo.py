@@ -68,7 +68,5 @@ if __name__ == "__main__":
         voc_label_files = os.listdir(args.voc_label_dir)
         for voc_label_file in tqdm(voc_label_files):
             voc_label_file_path = os.path.join(args.voc_label_dir, voc_label_file)
-            if '.xml' in voc_label_file or '.XML' in voc_label_file:
+            if '.xml' in voc_label_file.lower():
                 convert_annotation(voc_label_file_path, args.yolo_label_dir)
-            else:
-                print('{} not xml file.'.format(voc_label_file_path))
